@@ -1,0 +1,73 @@
+# ---- Secrets / environment ----
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ---- Database data ----
+# The bind-mounted Postgres data directory — never commit this
+database/data/
+data/
+
+# SQL dumps and backups
+*.sql.gz
+*.dump
+*.backup
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Testing / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# ---- Node / React (for when you get to the frontend) ----
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+build/
+dist/
+.next/
+out/
+
+# Frontend env files
+.env.development.local
+.env.production.local
+
+# ---- IDE / editor ----
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- Logs ----
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
