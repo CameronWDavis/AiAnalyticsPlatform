@@ -4,6 +4,8 @@
 .env.*.local
 *.pem
 *.key
+*.yml
+
 
 # ---- Database data ----
 # The bind-mounted Postgres data directory — never commit this
