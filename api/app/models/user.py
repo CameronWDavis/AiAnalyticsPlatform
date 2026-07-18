@@ -17,5 +17,13 @@ class User(db.Model):
         server_default=func.now()
     )
 
+    def to_dict(self) -> dict:
+        return {
+        "id": self.id,
+        "name": self.name,
+        "email": self.email,
+        "created_at": self.created_at.isoformat() if self.created_at else None,
+    }
+
     def __repr__(self) -> str:
         return f"<User id={self.id} email={self.email!r}>"
