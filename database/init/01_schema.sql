@@ -9,16 +9,16 @@ CREATE TABLE categories (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     name VARCHAR(100) NOT NULL,
-    color VARCHAR(7),  -- optional hex color for UI, e.g. "#3B82F6"
+    color VARCHAR(7), 
     UNIQUE (user_id, name)
 );
 
 CREATE TABLE usage_logs (
     id SERIAL PRIMARY KEY,
     user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-    date DATE NOT NULL,                    -- the day being aggregated
-    model VARCHAR(100) NOT NULL,           -- e.g. "claude-opus-4-7"
-    platform VARCHAR(100) NOT NULL,        -- e.g. "Anthropic"
+    date DATE NOT NULL,                    
+    model VARCHAR(100) NOT NULL,           
+    platform VARCHAR(100) NOT NULL,        
     input_tokens INTEGER NOT NULL DEFAULT 0,
     output_tokens INTEGER NOT NULL DEFAULT 0,
     total_tokens INTEGER GENERATED ALWAYS AS (input_tokens + output_tokens) STORED,
