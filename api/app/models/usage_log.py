@@ -48,3 +48,20 @@ class UsageLog(db.Model):
 
     def __repr__(self) -> str:
         return f"<UsageLog id={self.id} user_id={self.user_id} date={self.date} tokens={self.total_tokens}>"
+
+
+    def to_dict(self) -> dict:
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "date": self.date.isoformat() if self.date else None,
+            "model": self.model,
+            "platform": self.platform,
+            "input_tokens": self.input_tokens,
+            "output_tokens": self.output_tokens,
+            "total_tokens": self.total_tokens,
+            "request_count": self.request_count,
+            "estimated_cost_usd": float(self.estimated_cost_usd) if self.estimated_cost_usd is not None else None,
+            "created_at": self.created_at.isoformat() if self.created_at else None,
+            "updated_at": self.updated_at.isoformat() if self.updated_at else None,
+        }

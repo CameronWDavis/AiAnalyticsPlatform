@@ -22,3 +22,11 @@ class Category(db.Model):
 
     def __repr__(self) -> str:
         return f"<Category id={self.id} name={self.name!r} user_id={self.user_id}>"
+
+    def to_dict(self) -> dict:
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "name": self.name,
+            "color": self.color
+        }
