@@ -33,3 +33,14 @@ class Prompt(db.Model):
 
     def __repr__(self) -> str:
         return f"<Prompt id={self.id} user_id={self.user_id} model={self.model!r}>"
+
+    def to_dict(self) -> dict:
+            return {
+            "id": self.user_id,
+            "category": self.category_id,
+            "prompt_text": self.prompt_text,
+            "response_text": self.response_text,
+            "model": self.model,
+            "platform": self.platform,
+            "creation_time": self.created_at
+        }

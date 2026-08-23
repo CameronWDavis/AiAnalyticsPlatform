@@ -9,5 +9,8 @@ def create_app():
 
     from app.routes.users import users_bp
     app.register_blueprint(users_bp, url_prefix="/api")
+
+    from app.routes.prompts import prompt_bp
+    app.register_blueprint(prompt_bp, url_prefix="/api")
     
     return app
