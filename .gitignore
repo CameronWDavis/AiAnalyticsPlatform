@@ -40,10 +40,11 @@ dist/
 htmlcov/
 .tox/
 
-# ---- Node / React (for when you get to the frontend) ----
+# ---- Node / React ----
 node_modules/
 .pnp
 .pnp.js
+*.tsbuildinfo
 
 # Build outputs
 build/
@@ -72,3 +73,6 @@ desktop.ini
 logs/
 npm-debug.log*
 yarn-debug.log*
+
+# ---- Local notes ----
+frontend/DESIGN.md

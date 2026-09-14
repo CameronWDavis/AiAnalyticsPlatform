@@ -31,7 +31,10 @@ def get_summary():
     return jsonify({
         "time_window_days": days,
         "total_tokens": total_tokens,
-        "estimated_cost_usd": total_cost,
+        # SUM over a NUMERIC column returns a Decimal, which Flask serialises as
+        # a JSON string. Cast to float so the field is always a number, matching
+        # UsageLog.to_dict() and what clients expect.
+        "estimated_cost_usd": round(float(total_cost), 4),
         "request_count": total_requests,
         "active_users": active_users
     })

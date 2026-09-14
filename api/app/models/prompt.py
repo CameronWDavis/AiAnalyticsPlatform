@@ -35,12 +35,13 @@ class Prompt(db.Model):
         return f"<Prompt id={self.id} user_id={self.user_id} model={self.model!r}>"
 
     def to_dict(self) -> dict:
-            return {
-            "id": self.user_id,
-            "category": self.category_id,
+        return {
+            "id": self.id,
+            "user_id": self.user_id,
+            "category_id": self.category_id,
             "prompt_text": self.prompt_text,
             "response_text": self.response_text,
             "model": self.model,
             "platform": self.platform,
-            "creation_time": self.created_at
+            "created_at": self.created_at.isoformat() if self.created_at else None,
         }
